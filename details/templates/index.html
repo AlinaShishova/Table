@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Выбор ключевых сборок</title>
+</head>
+<body>
+    <h1>Состав изделия</h1>
+    <form method="post">
+        {% csrf_token %}
+        <table border="0">
+            <tr>
+                <th>Выбрать</th>
+                <th>Наименование</th>
+                <th>Обозначение по КД</th>
+                <th>Количество в сборке</th>
+                <th>Межцеховой маршрут</th>
+                <th>Класс</th>
+            </tr>
+            {% for row in results %}
+            <tr>
+                <td><input type="checkbox" name="selected" value="{{ row.0 }}"></td>
+                <td><a href="?dm_index_where={{ row.0 }}">{{ row.1 }}</a></td>
+                <td>{{ row.2 }}</td>
+                <td>{{ row.3 }}</td>
+                <td>{{ row.4 }}</td>
+                <td>{{ row.5 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="Применить">
+    </form>
+    <a href="?dm_index_where={{ old_dm_index_where }}"><button>Назад</button></a>
+</body>
+</html>

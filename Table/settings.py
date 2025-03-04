@@ -76,9 +76,9 @@ WSGI_APPLICATION = 'Table.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': '10.124.12.2:1521/db1p',  # DSN (хост:порт/сервис)
-        'USER': 'AMR',
-        'PASSWORD': 'AMR',
+        'NAME': '11.111.11.1:1521/db1p',  # DSN (хост:порт/сервис)
+        'USER': '111',
+        'PASSWORD': '111',
         'OPTIONS': {
             'threaded': True,  # Включаем поддержку многопоточности для Oracle
         },
